@@ -1,0 +1,74 @@
+/*INDEX*/
+
+.top{
+    top:0px;
+    position:relative;
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
+    height: 80px;
+    background-color:#1A237E;
+    z-index: 5;
+}
+
+.navbar{
+    background-color: #1A237E;
+    width: 100%;     
+}
+
+.navbar-brand{
+    width:40%;	
+}
+
+.tituloTop{
+    padding-top: 10px;
+    color: white;  
+    font-weight:bold;
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 32px;
+}
+
+
+
+.Sesion {
+    top:80px;
+    width: 100%;
+    height: 560px;
+    padding-left: 33%;   
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+#credits {
+    width: 100%;
+    height: 40px;
+    background-color: #e6e6e6;
+}
+
+/*CREAR CLIENTES*/
+
+.listadoClientes {
+    top:80px;
+    width: 100%;
+    height: 560px;
+    padding-left: 33%;   
+    align-items: center;
+    justify-content: center;
+
+}
+
+/*CREAR TECNICOS*/
+
+.listadoTecnicos {
+    top:80px;
+    width: 100%;
+    height: 560px;
+    padding-left: 33%;   
+    align-items: center;
+    justify-content: center;
+
+}
