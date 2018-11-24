@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 
 class Cliente(models.Model):
     objects = models.Manager()
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=25)
+    apellidos = models.CharField(max_length = 25)
     direccion = models.CharField(max_length=50)
     ciudad = models.CharField(max_length=50)
     comuna = models.CharField(max_length=50)

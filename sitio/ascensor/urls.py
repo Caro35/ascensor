@@ -7,4 +7,5 @@ urlpatterns = [
     path('CrearCliente.html', views.crearCliente, name='crearCliente'),
     path('CrearTecnico.html', views.crearTecnico, name='crearTecnico'),
     path('ListadoClientes.html', views.listadoClientes, name='listadoClientes'),
+    path('ListadoOrdenes.html', views.listadoOrdenes, name='listadoOrdenes'),
 ]

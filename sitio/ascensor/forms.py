@@ -1,4 +1,5 @@
 from django.forms import ModelForm
+from django import forms
 from .models import Cliente,Orden
 
 class ClienteForm(ModelForm):
@@ -6,6 +7,7 @@ class ClienteForm(ModelForm):
         model = Cliente
         fields = [
             'nombre',
+            'apellidos',
             'direccion',
             'ciudad',
             'comuna',
@@ -27,3 +29,8 @@ class OrdenForm(ModelForm):
             'piezas',
             'nombreReceptor',
         ]
+        widgets = {
+            'fecha': forms.TextInput(attrs={'type': 'date'}),
+            'horaInicio': forms.TextInput(attrs={'type': 'time'}),
+            'horaTermino': forms.TextInput(attrs={'type': 'time'}),
+            }
