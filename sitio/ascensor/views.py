@@ -1,17 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from .models import Cliente,Orden
-from .forms import ClienteForm,OrdenForm
+from .forms import ClienteForm,OrdenForm,UserForm
 
 # Create your views here.
 def index(request):
     return render(request,'ascensor/index.html')
 
-def crearCliente(request):
-    return render(request,'ascensor/CrearCliente.html')
-
-def crearTecnico(request):
-    return render(request,'ascensor/CrearTecnico.html')
+def misClientes(request):
+    return render(request,'ascensor/MisClientes.html')
 
 def listadoClientes(request):
     if request.method == 'POST':
@@ -26,19 +23,36 @@ def listadoClientes(request):
     return render(request, 'ascensor/ListadoClientes.html', {'form': form})
 
 def listadoOrdenes(request):
-            # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
         form = OrdenForm(request.POST)
-        # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponseRedirect('/ListadoOrdenes.html')
-
-    # if a GET (or any other method) we'll create a blank form
+            #TODO: Guardar
+            return HttpResponseRedirect('ascensor/ListadoOrdenes.html')
     else:
         form = OrdenForm()
 
     return render(request, 'ascensor/ListadoOrdenes.html', {'form': form})
+
+def nuevaOrden(request):
+    if request.method == 'POST':
+        form = OrdenForm(request.POST)
+        if form.is_valid():
+            #TODO: Guardar
+            return HttpResponseRedirect('ascensor/ListadoOrdenes.html')
+    else:
+        form = OrdenForm()
+
+    return render(request, 'ascensor/NuevaOrden.html', {'form': form})
+
+def misOrdenes(request):
+    return render(request, 'ascensor/MisOrdenes.html')
+
+def listadoTecnicos(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            #TODO: Guardar
+            return HttpResponseRedirect('ascensor/ListadoTecnicos.html')
+    else:
+        form = UserForm()
+    return render(request, 'ascensor/ListadoTecnicos.html', {'form': form})

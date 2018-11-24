@@ -12,17 +12,12 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+  line-height: 60px;
   background-color: #f5f5f5;
 }
 
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
+/* Margenes generales */
 body > .container {
   padding: 60px 15px 0;
 }
@@ -36,6 +31,7 @@ code {
   font-size: 80%;
 }
 
+/* Barra de navegación */
 .navbar {
   background-color: darkblue !important;
 }

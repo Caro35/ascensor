@@ -1,0 +1,51 @@
+{% extends 'ascensor/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="row">&nbsp;</div>
+    <h3>Mis clientes</h3>
+    <div class="row">&nbsp;</div>
+    <div class="container-fluid ">
+        <table class="table" id="cliente-tabla" >
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Comuna</th>            
+                <th scope="col">Región</th>
+                <th scope="col">Telefono</th> 
+                <th scope="col">Correo contacto</th>        
+                <th scope="col">Acción</th>     
+            </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+                <tr>
+                    <td>Cliente</td>
+                    <td>De Prueba</td>
+                    <td>Dirección de prueba 2929</td>
+                    <td>Santiago</td>
+                    <td>Santiago</td>
+                    <td>Región Metropolitana</td>
+                    <td>223265433</td>
+                    <td>prueba@prueba.cl</td>
+                    <td><a class="fas fa-edit text-success" title="Crear Orden" href="NuevaOrden.html"></a>
+                    </td>
+                </tr>
+                <tr>
+                        <td>asd</td>
+                        <td>asd</td>
+                        <td>asd</td>
+                        <td>asd</td>
+                        <td>asd</td>
+                        <td>asd</td>
+                        <td>asd</td>
+                        <td>asd</td>
+                        <td><a class="fas fa-edit text-success" title="Crear Orden" href="NuevaOrden.html"></a>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+    
+{% endblock %}

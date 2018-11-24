@@ -1,20 +1,17 @@
 {% extends 'ascensor/base_admin.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="row">&nbsp;</div>
-    <h3>Listado de ordenes</h3>
+    <div class="row">&nbsp;</div>
+    <h3>Listado de técnicos</h3>
     <div class="row">&nbsp;</div>
     <div class="container-fluid ">
         <table class="table" id="cliente-tabla" >
             <thead class="thead-light">
             <tr>
-                <th scope="col">Técnico</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Hora de inicio</th>
-                <th scope="col">Hora de termino</th>
-                <th scope="col">Identificador ascensor</th>            
-                <th scope="col">Modelo del ascensor</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Dirección de Correo</th>    
+                <th scope="col">Acción</th>     
             </tr>
             </thead>
             <tbody id="cuerpoTabla">
@@ -22,20 +19,19 @@
                     <td>asd</td>
                     <td>asd</td>
                     <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
+                    <td><i class="fas fa-edit text-success" title="editar" data-toggle="modal" data-target="#modalCliente" ></i>&nbsp;<i class="fas fa-minus-circle text-danger" title="eliminar"></i></td>
                 </tr>
             </tbody>
         </table>
+        <div class="row">&nbsp;</div>
+        <div class="row"><button class="btn btn-success" data-toggle="modal" data-target="#modalCliente">Nuevo Técnico</button></div>
     </div>
     <div class="modal fade" id="modalCliente" tabindex="-1" role="dialog" aria-labelledby="modalCliente" aria-hidden="true">
             <form action="ListadoClientes.html" method="post">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Cliente</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Técnico</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

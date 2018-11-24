@@ -1,11 +1,23 @@
 from django.forms import ModelForm
 from django import forms
 from .models import Cliente,Orden
+from django.contrib.auth.models import User
+
+class UserForm(ModelForm):
+    class Meta:
+        model=User
+        fields=[
+            'first_name',
+            'last_name',
+            'email',
+            'password'
+        ]
 
 class ClienteForm(ModelForm):
     class Meta:
         model = Cliente
         fields = [
+            'tecnico',
             'nombre',
             'apellidos',
             'direccion',
