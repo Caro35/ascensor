@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="row">&nbsp;</div>
-    <h3>Mis clientes</h3>
+    <h3 class="Titulo">Mis clientes</h3>
     <div class="row">&nbsp;</div>
     <div class="container-fluid ">
         <table class="table" id="cliente-tabla" >
@@ -21,29 +21,29 @@
             </thead>
             <tbody id="cuerpoTabla">
                 <tr>
-                    <td>Cliente</td>
-                    <td>De Prueba</td>
-                    <td>Dirección de prueba 2929</td>
-                    <td>Santiago</td>
-                    <td>Santiago</td>
-                    <td>Región Metropolitana</td>
-                    <td>223265433</td>
-                    <td>prueba@prueba.cl</td>
+                    <td data-label="Nombre: &nbsp" >Cliente</td>
+                    <td data-label="Apellido: &nbsp">De Prueba</td>
+                    <td data-label="Dirección: &nbsp">Dirección de prueba 2929</td>
+                    <td data-label="Ciudad: &nbsp">Santiago</td>
+                    <td data-label="Comuna: &nbsp">Santiago</td>
+                    <td data-label="Región: &nbsp">Región Metropolitana</td>
+                    <td data-label="Teléfono: &nbsp">223265433</td>
+                    <td data-label="Correo contacto: &nbsp">prueba@prueba.cl</td>
                     <td><a class="fas fa-edit text-success" title="Crear Orden" href="NuevaOrden.html"></a>
                     </td>
                 </tr>
                 <tr>
-                        <td>asd</td>
-                        <td>asd</td>
-                        <td>asd</td>
-                        <td>asd</td>
-                        <td>asd</td>
-                        <td>asd</td>
-                        <td>asd</td>
-                        <td>asd</td>
-                        <td><a class="fas fa-edit text-success" title="Crear Orden" href="NuevaOrden.html"></a>
-                        </td>
-                    </tr>
+                    <td data-label="Nombre: &nbsp">asd</td>
+                    <td data-label="Apellido: &nbsp">asd</td>
+                    <td data-label="Dirección: &nbsp">asd</td>
+                    <td data-label="Ciudad: &nbsp">asd</td>
+                    <td data-label="Comuna: &nbsp">asd</td>
+                    <td data-label="Región: &nbsp">asd</td>
+                    <td data-label="Teléfono: &nbsp">asd</td>
+                    <td data-label="Correo contacto: &nbsp">asd</td>
+                    <td><a class="fas fa-edit text-success" title="Crear Orden" href="NuevaOrden.html"></a>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

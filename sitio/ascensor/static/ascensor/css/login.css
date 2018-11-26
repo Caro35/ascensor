@@ -13,6 +13,22 @@ body {
   background-color: #f5f5f5;
 }
 
+/*IMAGEN FONDO*/
+
+body {
+
+  background-image: url('/static/ascensor/img/Fondo2.jpg');
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-attachment:fixed;
+  -o-background-size: 100% 100%, auto;
+  -moz-background-size: 100% 100%, auto;
+  -webkit-background-size: 100% 100%, auto;
+  background-size: 100% 100%, auto;
+
+  
+}
+
 .form-signin {
   width: 100%;
   max-width: 330px;
@@ -41,4 +57,35 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.titulo {
+  text-transform: uppercase; 
+  color: white;
+  font-weight: bold;
+  font-size: 38px;
+}
+
+.subtitulo {
+  font-family: Helvetica;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  
+}
+
+#inputPassword, #txtUsuario{
+  font-family: Helvetica;
+  font-size: 16px;
+
+}
+
+#footer{
+  font-family: Helvetica;
+  color: white;
+  font-size: 18px;
+}
+
+#btnIngreso{
+  font-family: Helvetica;
 }

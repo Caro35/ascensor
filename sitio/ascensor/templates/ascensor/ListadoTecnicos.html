@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="row">&nbsp;</div>
-    <h3>Listado de técnicos</h3>
+    <h3 class="Titulo">Listado de técnicos</h3>
     <div class="row">&nbsp;</div>
     <div class="container-fluid ">
         <table class="table" id="cliente-tabla" >
@@ -16,22 +16,22 @@
             </thead>
             <tbody id="cuerpoTabla">
                 <tr>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td><i class="fas fa-edit text-success" title="editar" data-toggle="modal" data-target="#modalCliente" ></i>&nbsp;<i class="fas fa-minus-circle text-danger" title="eliminar"></i></td>
+                    <td data-label="Nombre: &nbsp">asd</td>
+                    <td data-label="Apellidos: &nbsp">asd</td>
+                    <td data-label="Dirección de correo: &nbsp">asd</td>
+                    <td ><i class="fas fa-edit text-success" title="editar" data-toggle="modal" data-target="#modalCliente" ></i>&nbsp;<i class="fas fa-minus-circle text-danger" title="eliminar"></i></td>
                 </tr>
             </tbody>
         </table>
         <div class="row">&nbsp;</div>
-        <div class="row"><button class="btn btn-success" data-toggle="modal" data-target="#modalCliente">Nuevo Técnico</button></div>
+        <div class="row"><button class="btn btn-success" data-toggle="modal" data-target="#modalCliente" id="btnVarios">Nuevo Técnico</button></div>
     </div>
     <div class="modal fade" id="modalCliente" tabindex="-1" role="dialog" aria-labelledby="modalCliente" aria-hidden="true">
             <form action="ListadoClientes.html" method="post">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Técnico</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar Técnico</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -41,8 +41,8 @@
                         {{ form|crispy }}
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <input type="submit" value="Guardar Cambios" class="btn btn-primary"/>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnVarios">Cerrar</button>
+                        <input type="submit" value="Guardar Cambios" class="btn btn-primary" id="btnVarios"/>
                     </div>
                 </div>
             </div>

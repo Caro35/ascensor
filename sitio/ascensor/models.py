@@ -11,7 +11,7 @@ class Cliente(models.Model):
     telefono = models.CharField(max_length=9)
     correo = models.EmailField()
     #El Técnico es un User.
-    tecnico = models.ForeignKey(User,on_delete=models.DO_NOTHING)
+    tecnico = models.ForeignKey(User,on_delete=models.DO_NOTHING,verbose_name="Técnico asignado")
 class Orden(models.Model):
     objects = models.Manager()
     cliente = models.ForeignKey(Cliente,on_delete=models.DO_NOTHING)
