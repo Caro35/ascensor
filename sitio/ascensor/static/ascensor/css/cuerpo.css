@@ -1,6 +1,7 @@
 /*Tablas Responsivo*/
 
 @media screen and (max-width: 768px) {
+
   table thead {
     border: none;
     clip: rect(0 0 0 0);
@@ -39,17 +40,25 @@
 
 }
 
+@media screen and (max-width: 576px)  {
+  
+  .Titulo {
+    font-size: 26px!important; 
+    
+  }
+}
+
 .Titulo{
-    text-transform: uppercase; 
-    color:darkblue;
-    font-weight: bold;
-    font-size: 38px;
-    text-align: center;
+  text-transform: uppercase; 
+  color:darkblue;
+  font-weight: bold;
+  font-size: 38px;
+  text-align: center;
 }
 
 #cliente-tabla{
-    font-family: Helvetica;
-    font-size: 15px;
+  font-family: Helvetica;
+  font-size: 15px;
 }
 
 .form-group{
@@ -72,3 +81,4 @@
     font-family: Helvetica;
     font-size: 16px;
 }
+
