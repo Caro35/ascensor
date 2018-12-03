@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from .models import Cliente,Orden
 from .forms import ClienteForm,OrdenForm,UserForm
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
 
 # Create your views here.
 def index(request):
@@ -22,6 +25,7 @@ def listadoClientes(request):
         form = ClienteForm()
     return render(request, 'ascensor/ListadoClientes.html', {'form': form})
 
+@staff_member_required(login_url=settings.LOGIN_URL)
 def listadoOrdenes(request):
     if request.method == 'POST':
         form = OrdenForm(request.POST)

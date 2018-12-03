@@ -1,6 +1,11 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,AbstractBaseUser,AbstractUser
 
+#Usuario personalizado, para usar email como username
+class Tecnico(AbstractUser):
+    email = models.EmailField(unique=True)
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
 class Cliente(models.Model):
     objects = models.Manager()
     nombre = models.CharField(max_length=25)
@@ -10,8 +15,7 @@ class Cliente(models.Model):
     comuna = models.CharField(max_length=50)
     telefono = models.CharField(max_length=9)
     correo = models.EmailField()
-    #El Técnico es un User.
-    tecnico = models.ForeignKey(User,on_delete=models.DO_NOTHING,verbose_name="Técnico asignado")
+    tecnico = models.ManyToManyField(Tecnico,verbose_name="Técnicos asignados")
 class Orden(models.Model):
     objects = models.Manager()
     cliente = models.ForeignKey(Cliente,on_delete=models.DO_NOTHING)
