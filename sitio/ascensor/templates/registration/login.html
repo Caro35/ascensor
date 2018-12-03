@@ -17,24 +17,25 @@
   </head>
 
   <body class="text-center">
-    <!--Zona errores-->
-    {% if form.errors %}
-    <div class="alert alert-danger">
-      <a class="close" href="#" data-dismiss="alert">×</a>
-      Usuario o contraseña incorrecta
-    </div>
-    {% endif %}
-    {% if request.GET.noauth %}
-    <div class="alert alert-warning">
-        Debe ingresar sus credenciales para poder acceder a esta página
-    </div>
-    {% endif %}
+
     <form method="post" class="form-signin">
       {% csrf_token %}
       {% load widget_tweaks %}   
       <img src ="{% static 'ascensor/img/LogoElevator.png' %}" class=mt-3>
       <h1 class="titulo mb-3" >Sub-e</h1>
       <h1 class="subtitulo">Iniciar sesión</h1>
+      <!--Zona errores-->
+      {% if form.errors %}
+      <div class="alert alert-danger">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+        Usuario o contraseña incorrecta
+      </div>
+      {% endif %}
+      {% if request.GET.noauth %}
+      <div class="alert alert-warning">
+          Debe ingresar sus credenciales para poder acceder a esta página
+      </div>
+      {% endif %}
       {% for field in form %}
       <div class="form-group{% if field.errors %} has-error{% endif %}">
         <label for="{{ field.id_for_label }}" class="sr-only">{{ field.label }}</label>
