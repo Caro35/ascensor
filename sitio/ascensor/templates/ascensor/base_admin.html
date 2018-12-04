@@ -41,7 +41,7 @@
           <form class="form-inline mt-2 mt-md-0">
               {% if user.is_authenticated %}
               <div style="color: #FFF;">Bienvenido {{ user.username }}&nbsp;</div>
-                  <a href="{% url 'logout' %}" alt="Cerrar Sesion">Salir</a>
+                  <a href="{% url 'salir' %}" alt="Cerrar Sesion">Salir</a>
               {% else %}
               <a  class="d-none d-md-block col-xs-12 col-md-4 col-lg-2"  href="index.html">  
                   <img src="{% static 'ascensor/img/user.png' %}"  id="login" alt="Iniciar Sesión"/>
