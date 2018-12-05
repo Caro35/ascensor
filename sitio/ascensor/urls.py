@@ -10,5 +10,5 @@ urlpatterns = [
     path('ListadoOrdenes.html', views.listadoOrdenes, name='listadoOrdenes'),
     path('NuevaOrden.html', views.nuevaOrden, name='nuevaOrden'),
     path('ListadoTecnicos.html', views.listadoTecnicos, name='listadoTecnicos'),
-    path('logout',views.salir,name='salir')
+    path('logout',views.salir,name='salir'),
 ]
