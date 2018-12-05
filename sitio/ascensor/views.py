@@ -35,7 +35,9 @@ def listadoClientes(request):
             return HttpResponseRedirect('/ascensor/ListadoClientes.html?mensaje=exito')
     else:
         form = ClienteForm()
-    return render(request, 'ascensor/ListadoClientes.html', {'form': form})
+    # Consulta de clientes
+    clientes = Cliente.objects.all()
+    return render(request, 'ascensor/ListadoClientes.html', {'form': form,'clientes':clientes})
 
 @staff_member_required(login_url=settings.LOGIN_URL)
 def listadoOrdenes(request):

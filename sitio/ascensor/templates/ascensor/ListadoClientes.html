@@ -20,17 +20,21 @@
             </tr>
             </thead>
             <tbody id="cuerpoTabla">
+                {% for cliente in clientes %}
                 <tr>
-                    <td data-label="Nombre: &nbsp">asd</td>
-                    <td data-label="Apellido: &nbsp">asd</td>
-                    <td data-label="Dirección: &nbsp">asd</td>
-                    <td data-label="Ciudad: &nbsp">asd</td>
-                    <td data-label="Comuna: &nbsp">asd</td>
-                    <td data-label="Región: &nbsp">asd</td>
-                    <td data-label="Telefono: &nbsp">asd</td>
-                    <td data-label="Correo contacto:&nbsp ">asd</td>
-                    <td><i class="fas fa-edit text-success" title="editar"></i>&nbsp;<i class="fas fa-minus-circle text-danger" title="eliminar"></i></td>
+                    <td data-label="Nombre: &nbsp">{{cliente.nombre}}</td>
+                    <td data-label="Apellido: &nbsp">{{cliente.apellidos}}</td>
+                    <td data-label="Dirección: &nbsp">{{cliente.direccion}}</td>
+                    <td data-label="Ciudad: &nbsp">{{cliente.ciudad}}</td>
+                    <td data-label="Comuna: &nbsp">{{cliente.comuna}}</td>
+                    <td data-label="Región: &nbsp">{{cliente.nombre}}</td>
+                    <td data-label="Telefono: &nbsp">{{cliente.telefono}}</td>
+                    <td data-label="Correo contacto:&nbsp ">{{cliente.correo}}</td>
+                    <td><i class="fas fa-edit text-success" title="editar" onclick="editar('{{cliente.id}}')"></i>
+                        &nbsp;<i class="fas fa-minus-circle text-danger" onclick="eliminar('{{cliente.id}}')" title="eliminar"></i>
+                    </td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
         <div class="row">&nbsp;</div>
