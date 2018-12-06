@@ -11,4 +11,7 @@ urlpatterns = [
     path('NuevaOrden.html', views.nuevaOrden, name='nuevaOrden'),
     path('ListadoTecnicos.html', views.listadoTecnicos, name='listadoTecnicos'),
     path('logout',views.salir,name='salir'),
+    path('form_clientes',views.formClientes,name='formClientes'),
+    path('eliminarCliente',views.eliminarCliente,name='eliminarCliente'),
+    
 ]

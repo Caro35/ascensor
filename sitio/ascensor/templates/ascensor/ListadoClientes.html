@@ -38,28 +38,37 @@
             </tbody>
         </table>
         <div class="row">&nbsp;</div>
-        <div class="row"><button class="btn btn-success" data-toggle="modal" data-target="#modalCliente" id="btnVarios">Nuevo Cliente</button></div>
+        <div class="row"><button class="btn btn-success" id="btnVarios" onclick="nuevo()">Nuevo Cliente</button></div>
     </div>
     <div class="modal fade" id="modalCliente" tabindex="-1" role="dialog" aria-labelledby="modalCliente" aria-hidden="true">
-            <form action="ListadoClientes.html" method="post">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Agregar Cliente</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        {% csrf_token %}
-                        {{ form|crispy }}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnVarios">Cerrar</button>
-                        <input type="submit" value="Guardar Cambios" class="btn btn-primary" id="btnVarios"/>
-                    </div>
-                </div>
-            </div>
-        </form>
     </div>
+{% endblock %}
+{% block js %}
+<script>
+    $().ready(function (){
+        $.getJSON("{% url 'formClientes' %}",function (resultado){
+            $('#modalCliente').html(resultado['formulario']);
+        });
+    });
+    function editar(clienteId)
+    {
+        $.getJSON("{% url 'formClientes' %}?id="+clienteId,function (resultado){
+            $('#modalCliente').html(resultado['formulario']);
+            $('#modalCliente').modal('show');
+        });
+    }
+    function nuevo()
+    {
+        $.getJSON("{% url 'formClientes' %}",function (resultado){
+            $('#modalCliente').html(resultado['formulario']);
+            $('#modalCliente').modal('show');
+        });
+    }
+    function eliminar(clienteId)
+    {
+        $.getJSON("{% url 'eliminarCliente' %}?id="+clienteId,function (resultado){
+            document.location.reload();
+        });
+    }
+</script>
 {% endblock %}
