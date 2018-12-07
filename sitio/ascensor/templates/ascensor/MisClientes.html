@@ -2,50 +2,49 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="row">&nbsp;</div>
-    <h3 class="Titulo">Mis clientes</h3>
+    <h3 class="Titulo">Mis Clientes</h3>
     <div class="row">&nbsp;</div>
     <div class="container-fluid ">
         <table class="table" id="cliente-tabla" >
             <thead class="thead-light">
             <tr>
                 <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
                 <th scope="col">Dirección</th>
-                <th scope="col">Ciudad</th>
-                <th scope="col">Comuna</th>            
                 <th scope="col">Región</th>
+                <th scope="col">Comuna</th>
                 <th scope="col">Telefono</th> 
                 <th scope="col">Correo contacto</th>        
                 <th scope="col">Acción</th>     
             </tr>
             </thead>
             <tbody id="cuerpoTabla">
+                {% for cliente in clientes %}
                 <tr>
-                    <td data-label="Nombre: &nbsp" >Cliente</td>
-                    <td data-label="Apellido: &nbsp">De Prueba</td>
-                    <td data-label="Dirección: &nbsp">Dirección de prueba 2929</td>
-                    <td data-label="Ciudad: &nbsp">Santiago</td>
-                    <td data-label="Comuna: &nbsp">Santiago</td>
-                    <td data-label="Región: &nbsp">Región Metropolitana</td>
-                    <td data-label="Teléfono: &nbsp">223265433</td>
-                    <td data-label="Correo contacto: &nbsp">prueba@prueba.cl</td>
-                    <td><a class="fas fa-edit text-success" title="Crear Orden" href="NuevaOrden.html"></a>
+                    <td data-label="Nombre: &nbsp">{{cliente.nombre}}</td>
+                    <td data-label="Dirección: &nbsp">{{cliente.direccion}}</td>
+                    <td data-label="Región: &nbsp">{{cliente.region}}</td>
+                    <td data-label="Comuna: &nbsp">{{cliente.comuna}}</td>
+                    <td data-label="Telefono: &nbsp">{{cliente.telefono}}</td>
+                    <td data-label="Correo contacto:&nbsp ">{{cliente.correo}}</td>
+                    <td><i class="fas fa-edit text-success" title="Crear Orden" onclick="crearOrden('{{cliente.id}}')"></i>
                     </td>
                 </tr>
-                <tr>
-                    <td data-label="Nombre: &nbsp">asd</td>
-                    <td data-label="Apellido: &nbsp">asd</td>
-                    <td data-label="Dirección: &nbsp">asd</td>
-                    <td data-label="Ciudad: &nbsp">asd</td>
-                    <td data-label="Comuna: &nbsp">asd</td>
-                    <td data-label="Región: &nbsp">asd</td>
-                    <td data-label="Teléfono: &nbsp">asd</td>
-                    <td data-label="Correo contacto: &nbsp">asd</td>
-                    <td><a class="fas fa-edit text-success" title="Crear Orden" href="NuevaOrden.html"></a>
-                    </td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
+    <div class="modal fade" id="modalOrden" tabindex="-1" role="dialog" aria-labelledby="modalOrden" aria-hidden="true">
+    </div>
+{% endblock %}
+{% block js %}
+<script>
+    function crearOrden(idCliente)
+    {
+        $.getJSON("{% url 'formOrdenes' %}?idCliente="+idCliente,function (resultado){
+            $('#modalOrden').html(resultado['formulario']);
+            $('#modalOrden').modal('show');
+        });
+    }
     
+</script>
 {% endblock %}

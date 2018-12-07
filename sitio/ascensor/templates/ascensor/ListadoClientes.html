@@ -9,11 +9,9 @@
             <thead class="thead-light">
             <tr>
                 <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
                 <th scope="col">Dirección</th>
-                <th scope="col">Ciudad</th>
-                <th scope="col">Comuna</th>            
                 <th scope="col">Región</th>
+                <th scope="col">Comuna</th>
                 <th scope="col">Telefono</th> 
                 <th scope="col">Correo contacto</th>        
                 <th scope="col">Acción</th>     
@@ -23,11 +21,9 @@
                 {% for cliente in clientes %}
                 <tr>
                     <td data-label="Nombre: &nbsp">{{cliente.nombre}}</td>
-                    <td data-label="Apellido: &nbsp">{{cliente.apellidos}}</td>
                     <td data-label="Dirección: &nbsp">{{cliente.direccion}}</td>
-                    <td data-label="Ciudad: &nbsp">{{cliente.ciudad}}</td>
+                    <td data-label="Región: &nbsp">{{cliente.region}}</td>
                     <td data-label="Comuna: &nbsp">{{cliente.comuna}}</td>
-                    <td data-label="Región: &nbsp">{{cliente.nombre}}</td>
                     <td data-label="Telefono: &nbsp">{{cliente.telefono}}</td>
                     <td data-label="Correo contacto:&nbsp ">{{cliente.correo}}</td>
                     <td><i class="fas fa-edit text-success" title="editar" onclick="editar('{{cliente.id}}')"></i>

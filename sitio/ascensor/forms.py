@@ -1,17 +1,20 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Cliente,Orden
+from .models import Cliente,Orden, Tecnico
 from django.contrib.auth.models import User
 
-class UserForm(ModelForm):
+class TecnicoForm(ModelForm):
     class Meta:
-        model=User
+        model=Tecnico
         fields=[
             'first_name',
             'last_name',
             'email',
             'password'
         ]
+        widgets = {
+        'password': forms.PasswordInput()
+        }
 
 class ClienteForm(ModelForm):
     class Meta:
@@ -19,9 +22,8 @@ class ClienteForm(ModelForm):
         fields = [
             'tecnico',
             'nombre',
-            'apellidos',
             'direccion',
-            'ciudad',
+            'region',
             'comuna',
             'telefono',
             'correo',
@@ -30,7 +32,6 @@ class OrdenForm(ModelForm):
     class Meta:
         model = Orden
         fields = [
-            'cliente',
             'fecha',
             'horaInicio',
             'horaTermino',
