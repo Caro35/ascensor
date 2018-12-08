@@ -24,15 +24,8 @@ def index(request):
 
 @staff_member_required(login_url=settings.LOGIN_URL)
 def listadoOrdenes(request):
-    if request.method == 'POST':
-        form = OrdenForm(request.POST)
-        if form.is_valid():
-            #TODO: Guardar
-            return HttpResponseRedirect('ascensor/ListadoOrdenes.html')
-    else:
-        form = OrdenForm()
-
-    return render(request, 'ascensor/ListadoOrdenes.html', {'form': form})
+    ordenes = Orden.objects.all()
+    return render(request, 'ascensor/ListadoOrdenes.html', {'ordenes':ordenes})
 
 @login_required
 def nuevaOrden(request):
@@ -170,6 +163,7 @@ def misOrdenes(request):
             idCliente = request.POST.get('idCliente','')
             if (idCliente!=''):
                 form.instance.cliente = get_object_or_404(Cliente,pk=idCliente)
+            form.instance.tecnico = get_object_or_404(Tecnico,pk=request.user.id)
             form.save()
             return HttpResponseRedirect('/ascensor/MisOrdenes.html?mensaje=exito')
     else:
@@ -177,3 +171,10 @@ def misOrdenes(request):
     # Consulta de clientes
     ordenes = Orden.objects.filter(cliente__tecnico=request.user.id)
     return render(request, 'ascensor/MisOrdenes.html', {'form': form,'ordenes':ordenes})
+
+@login_required
+def eliminarOrdenes(request):
+    pk = request.GET.get('id','')
+    orden = get_object_or_404(Orden,pk=pk)
+    orden.delete()
+    return JsonResponse({"respuesta":"OK"})

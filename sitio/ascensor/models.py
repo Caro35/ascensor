@@ -18,6 +18,7 @@ class Cliente(models.Model):
 class Orden(models.Model):
     objects = models.Manager()
     cliente = models.ForeignKey(Cliente,on_delete=models.DO_NOTHING)
+    tecnico = models.ForeignKey(Tecnico,on_delete=models.DO_NOTHING,verbose_name="Técnico")
     fecha = models.DateField()
     horaInicio = models.TimeField(verbose_name="Hora de inicio")
     horaTermino = models.TimeField(verbose_name="Hora de termino")

@@ -1,10 +1,9 @@
 {% load crispy_forms_tags %}
-{% load static %}
-<form action="ListadoClientes.html" method="post">
+<form action="ListadoTecnicos.html" method="post">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cliente</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tecnico</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,9 +11,7 @@
             <div class="modal-body">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <input type="hidden" name="idCliente" value="{{form.instance.id}}"/>
-                <input type="hidden" id="nombreRegion" value="{{form.instance.region}}"/>
-                <input type="hidden" id="nombreComuna" value="{{form.instance.comuna}}"/>
+                <input type="hidden" name="idTecnico" value="{{form.instance.id}}"/>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnVarios">Cerrar</button>
@@ -23,4 +20,3 @@
         </div>
     </div>
 </form>
-<script src="{% static 'ascensor/js/regiones.js' %}?v1"></script>

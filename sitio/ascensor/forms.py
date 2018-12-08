@@ -28,6 +28,10 @@ class ClienteForm(ModelForm):
             'telefono',
             'correo',
         ]
+        widgets = {
+            'region':forms.Select,
+            'comuna':forms.Select
+        }
 class OrdenForm(ModelForm):
     class Meta:
         model = Orden

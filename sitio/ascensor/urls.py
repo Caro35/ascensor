@@ -16,4 +16,5 @@ urlpatterns = [
     path('form_tecnicos',views.formTecnicos,name='formTecnicos'),
     path('eliminarTecnicos',views.eliminarTecnicos,name='eliminarTecnicos'),
     path('form_ordenes',views.formOrdenes,name='formOrdenes'),
+    path('eliminarOrdenes',views.eliminarOrdenes,name='eliminarOrdenes'),
 ]
