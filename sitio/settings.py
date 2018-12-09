@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'widget_tweaks',
-    'social_django'
+    'social_django',
+    'pwa',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -152,6 +153,18 @@ SOCIAL_AUTH_FACEBOOK_SCOPE = [
     'email'
 ]
 ### Id y Clave secreta de Facebook.
-SOCIAL_AUTH_FACEBOOK_KEY = '290405804826401'
-SOCIAL_AUTH_FACEBOOK_SECRET = '9fff12078ffd3309cbcb916df833be2a'
+SOCIAL_AUTH_FACEBOOK_KEY = '1200488313438319'
+SOCIAL_AUTH_FACEBOOK_SECRET = '322d9371dbe566bc36903768fa8fd9fe'
 
+#PWA
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'ascensor/static/ascensor/js', 'serviceworker.js')
+
+PWA_APP_NAME = 'Ascensores Sub-e'
+PWA_APP_DESCRIPTION = "Ingreso de ordenes de servicio para ascensores Sub-e"
+PWA_APP_START_URL = '/ascensor'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/ascensor/img/logo.png',
+        'sizes': '50x50'
+    }
+]

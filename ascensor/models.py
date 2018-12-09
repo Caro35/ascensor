@@ -17,8 +17,8 @@ class Cliente(models.Model):
     tecnico = models.ManyToManyField(Tecnico,verbose_name="Técnicos asignados")
 class Orden(models.Model):
     objects = models.Manager()
-    cliente = models.ForeignKey(Cliente,on_delete=models.DO_NOTHING)
-    tecnico = models.ForeignKey(Tecnico,on_delete=models.DO_NOTHING,verbose_name="Técnico")
+    cliente = models.ForeignKey(Cliente,on_delete=models.CASCADE)
+    tecnico = models.ForeignKey(Tecnico,on_delete=models.CASCADE,verbose_name="Técnico")
     fecha = models.DateField()
     horaInicio = models.TimeField(verbose_name="Hora de inicio")
     horaTermino = models.TimeField(verbose_name="Hora de termino")

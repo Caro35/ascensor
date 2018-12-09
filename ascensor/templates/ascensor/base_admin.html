@@ -37,6 +37,15 @@
             <li class="nav-item active">
                 <a class="nav-link" href="ListadoTecnicos.html">Técnicos</a>
             </li>
+            {% if user.social_auth.first is None %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'social:begin' 'facebook' %}?next={% url 'index' %}">Asocia tu cuenta a Facebook</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="desconectarFB()">Desconecta tu cuenta de Facebook</a>
+            </li>
+            {% endif %}
           </ul>
           <form class="form-inline mt-2 mt-md-0">
               {% if user.is_authenticated %}
