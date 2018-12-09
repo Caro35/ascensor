@@ -10,8 +10,6 @@ from ascensor.forms import ClienteForm, OrdenForm, TecnicoForm
 
 from .models import Cliente, Orden, Tecnico
 
-
-# Create your views here.
 @login_required
 def index(request):
     if not request.user.is_authenticated:
@@ -32,7 +30,6 @@ def nuevaOrden(request):
     if request.method == 'POST':
         form = OrdenForm(request.POST)
         if form.is_valid():
-            #TODO: Guardar
             return HttpResponseRedirect('ascensor/ListadoOrdenes.html')
     else:
         form = OrdenForm()
@@ -71,7 +68,6 @@ def formClientes(request):
         # Editar
         form = ClienteForm(instance=get_object_or_404(Cliente,pk=request.GET['id']))
         datos['formulario'] = render_to_string('ascensor/formularios/form_clientes.html',context={'form':form},request=request)
-        # return render(request,'ascensor/formularios/form_clientes.html',context={'form':form})
     else:
         # Nuevo
         form = ClienteForm()
@@ -169,7 +165,7 @@ def misOrdenes(request):
     else:
         form = TecnicoForm()
     # Consulta de clientes
-    ordenes = Orden.objects.filter(cliente__tecnico=request.user.id)
+    ordenes = Orden.objects.filter(tecnico=request.user.id)
     return render(request, 'ascensor/MisOrdenes.html', {'form': form,'ordenes':ordenes})
 
 @login_required

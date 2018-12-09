@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'widget_tweaks'
+    'widget_tweaks',
+    'social_django'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -67,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -125,3 +128,30 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'ascensor.Tecnico'
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    #'social_core.pipeline.user.get_username', Se desactiva el sobreescribir el nombre de usuario con la info de FB
+    'social_core.pipeline.social_auth.associate_by_email',
+    #'social_core.pipeline.user.create_user', Se desactiva la creación de usuarios
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)
+
+SOCIAL_AUTH_FACEBOOK_IGNORE_DEFAULT_SCOPE = True
+SOCIAL_AUTH_FACEBOOK_SCOPE = [
+    'email'
+]
+### Id y Clave secreta de Facebook.
+SOCIAL_AUTH_FACEBOOK_KEY = '290405804826401'
+SOCIAL_AUTH_FACEBOOK_SECRET = '9fff12078ffd3309cbcb916df833be2a'
+

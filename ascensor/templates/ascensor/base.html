@@ -35,6 +35,15 @@
             <li class="nav-item">
                 <a class="nav-link" href="MisClientes.html">Mis Clientes</a>
             </li>
+            {% if user.social_auth.first is None %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'social:begin' 'facebook' %}?next={% url 'index' %}">Asocia tu cuenta a Facebook</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="desconectarFB()">Desconecta tu cuenta de Facebook</a>
+            </li>
+            {% endif %}
           </ul>
           <form class="form-inline mt-2 mt-md-0">
               {% if user.is_authenticated %}
@@ -67,6 +76,18 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <!-- Desconexión de FB-->
+    <form id="frmDesconectarFB" action="{% url 'social:disconnect' 'facebook' %}?next={% url 'index' %}" method="POST">
+      {% csrf_token %}
+    </form>
+    <script>
+    function desconectarFB(){
+      alert("Su cuenta será desconectada de Facebook");
+      $('#frmDesconectarFB').submit();
+    }
+    </script>
+    
     {% block js %}
     {% endblock %}
   </body>

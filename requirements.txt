@@ -1,3 +1,6 @@
 Django
 django-crispy-forms
 django-widget-tweaks
+social-auth-core
+social-auth-app-django
+django-progressive-web-app

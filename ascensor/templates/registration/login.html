@@ -47,7 +47,7 @@
       {% endfor %}
       <button class="btn btn-lg btn-primary btn-block" id="btnIngreso" type="submit">Ingresar</button>
       <div class="row">&nbsp;</div>
-      <img src="{% static 'ascensor/img/facebook.png' %}">
+      <a href="{% url 'social:begin' 'facebook' %}?next={% url 'index' %}"><img src="{% static 'ascensor/img/facebook.png' %}"></a>
       <p class="mt-5 mb-3 " id="footer">Desarrollo Web y Mobile</p>
     </form>
   </body>
